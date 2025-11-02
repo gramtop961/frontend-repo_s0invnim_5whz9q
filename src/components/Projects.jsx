@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Spline from '@splinetool/react-spline'
 
 const projects = [
   {
@@ -29,8 +30,17 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="w-full bg-[#0a0f1a] py-20 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="projects" className="relative w-full bg-[#0a0f1a] py-20 text-white overflow-hidden">
+      {/* Decorative Spline background */}
+      <div className="pointer-events-none absolute -left-56 -top-40 hidden h-[520px] w-[720px] opacity-60 lg:block">
+        <Spline
+          scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0a0f1a] via-transparent to-transparent" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="text-3xl font-semibold sm:text-4xl">Projects</h2>
           <p className="text-sm text-gray-400">Hover to see details</p>
@@ -44,6 +54,8 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
+              whileHover={{ y: -4, rotateX: 2, rotateY: -2 }}
+              style={{ transformPerspective: 900 }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg"
             >
               <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">

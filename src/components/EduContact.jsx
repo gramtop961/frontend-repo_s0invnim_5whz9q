@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone } from 'lucide-react'
+import Spline from '@splinetool/react-spline'
 
 const backendBase = import.meta.env.VITE_BACKEND_URL || ''
 
@@ -37,8 +38,17 @@ export default function EduContact() {
   }
 
   return (
-    <section id="contact" className="w-full bg-[#0b1220] py-20 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contact" className="relative w-full bg-[#0b1220] py-20 text-white overflow-hidden">
+      {/* Subtle decorative 3D in the background */}
+      <div className="pointer-events-none absolute -bottom-24 -right-24 hidden h-[420px] w-[520px] opacity-60 md:block">
+        <Spline
+          scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tl from-[#0b1220] via-transparent to-transparent" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-10 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, y: 10 }}

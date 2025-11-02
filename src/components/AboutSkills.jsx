@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Rocket, Brain, Layers } from 'lucide-react'
+import Spline from '@splinetool/react-spline'
 
 const skills = {
   Languages: ['Python', 'C++', 'JavaScript', 'SQL', 'HTML/CSS'],
@@ -15,8 +16,17 @@ const cardVariants = {
 
 export default function AboutSkills() {
   return (
-    <section id="about" className="w-full bg-[#0b1220] py-20 text-white">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="about" className="relative w-full bg-[#0b1220] py-20 text-white overflow-hidden">
+      {/* Decorative 3D band using Spline behind content */}
+      <div className="pointer-events-none absolute right-0 top-1/2 hidden h-[520px] w-[720px] -translate-y-1/2 opacity-70 md:block">
+        <Spline
+          scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[#0b1220] via-transparent to-transparent" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-14 grid gap-8 md:grid-cols-2 md:items-start">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -25,7 +35,7 @@ export default function AboutSkills() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl font-semibold sm:text-4xl">About Me</h2>
-            <p className="mt-4 text-gray-300">
+            <p className="mt-4 max-w-prose text-gray-300">
               I’m passionate about full-stack development, data-driven systems, and AI tools. I enjoy
               designing efficient solutions across domains, from web applications to machine learning
               integrations. I have hands-on experience with frameworks like React, Flask, Node.js, and
@@ -39,7 +49,7 @@ export default function AboutSkills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, delay: 0.05 }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-6"
+            className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
           >
             <h3 className="text-xl font-medium text-cyan-300">Technical Skills</h3>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -91,8 +101,9 @@ export default function AboutSkills() {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-6 shadow-lg backdrop-blur-sm"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-6 shadow-lg backdrop-blur-sm"
             >
+              <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-cyan-500/20 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
               <div className="mb-3 inline-flex items-center justify-center rounded-md bg-cyan-500/20 p-2 text-cyan-300 ring-1 ring-cyan-500/30">
                 {c.icon}
               </div>
