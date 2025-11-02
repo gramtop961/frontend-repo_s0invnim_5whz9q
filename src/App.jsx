@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import AboutSkills from './components/AboutSkills'
 import Projects from './components/Projects'
 import EduContact from './components/EduContact'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   useEffect(() => {
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0a0f1a] text-white">
+      <CustomCursor />
       {/* Simple top nav */}
       <header className="sticky top-0 z-40 border-b border-white/10 bg-[#0a0f1a]/80 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">

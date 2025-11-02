@@ -136,13 +136,16 @@ export default function EduContact() {
                   {status.msg}
                 </div>
               )}
-              <button
+              <motion.button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 text-sm font-medium text-white shadow-md transition hover:opacity-90 disabled:opacity-60"
+                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: 1.02 }}
+                className="relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 text-sm font-medium text-white shadow-md transition hover:opacity-90 disabled:opacity-60"
               >
-                {loading ? 'Sending...' : 'Send Message'}
-              </button>
+                <span className="relative z-10">{loading ? 'Sending...' : 'Send Message'}</span>
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
+              </motion.button>
             </form>
           </motion.div>
         </div>

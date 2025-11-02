@@ -35,7 +35,7 @@ export default function Projects() {
       <div className="pointer-events-none absolute -left-56 -top-40 hidden h-[520px] w-[720px] opacity-60 lg:block">
         <Spline
           scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
+        style={{ width: '100%', height: '100%' }}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#0a0f1a] via-transparent to-transparent" />
       </div>
@@ -54,12 +54,13 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
-              whileHover={{ y: -4, rotateX: 2, rotateY: -2 }}
+              whileHover={{ y: -4, rotateX: 4, rotateY: -4, scale: 1.01 }}
               style={{ transformPerspective: 900 }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg"
             >
-              <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-600/10" />
+              {/* Glow sweep unique to projects */}
+              <div className="pointer-events-none absolute -inset-1 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-blue-600/10 to-cyan-500/10" />
               </div>
               <h3 className="text-xl font-medium">{p.title}</h3>
               <p className="mt-2 text-sm text-gray-300">{p.desc}</p>

@@ -17,7 +17,7 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
-        {/* Content panel placed on the left so the right side Spline stays interactive */}
+        {/* Content panel */}
         <div className="relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -28,7 +28,7 @@ export default function Hero() {
             Portfolio
           </motion.p>
           <motion.h1
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
             className="text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl"
@@ -36,7 +36,7 @@ export default function Hero() {
             Ankit Ranjan Das
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mt-3 text-lg text-gray-300"
@@ -44,7 +44,7 @@ export default function Hero() {
             Full-Stack Developer | AI & ML Enthusiast
           </motion.p>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="mt-6 max-w-xl text-gray-300"
@@ -83,13 +83,13 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* 3D Spline hero */}
+        {/* 3D Spline hero (updated asset) */}
         <div className="relative h-[380px] w-full md:h-[520px]">
           <Spline
-            scene="https://prod.spline.design/N8g2VNcx8Rycz93J/scene.splinecode"
+            scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode"
             style={{ width: '100%', height: '100%' }}
           />
-          {/* overlay gradient to blend with dark bg - does not block interactions */}
+          {/* overlay gradient to blend with dark bg - non-blocking */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0a0f1a] via-transparent to-transparent" />
         </div>
       </div>

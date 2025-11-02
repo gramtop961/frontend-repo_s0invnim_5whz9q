@@ -29,8 +29,8 @@ export default function AboutSkills() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-14 grid gap-8 md:grid-cols-2 md:items-start">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6 }}
           >
@@ -45,8 +45,8 @@ export default function AboutSkills() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 0.6, delay: 0.05 }}
             className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
@@ -58,12 +58,16 @@ export default function AboutSkills() {
                   <h4 className="text-sm uppercase tracking-wide text-gray-300">{title}</h4>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {list.map((s) => (
-                      <span
+                      <motion.span
                         key={s}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.35 }}
                         className="rounded-md bg-white/10 px-3 py-1 text-xs text-gray-100 ring-1 ring-white/10"
                       >
                         {s}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>
@@ -72,7 +76,7 @@ export default function AboutSkills() {
           </motion.div>
         </div>
 
-        {/* Strength cards */}
+        {/* Strength cards - unique hover underline sweep */}
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
@@ -103,6 +107,7 @@ export default function AboutSkills() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/0 p-6 shadow-lg backdrop-blur-sm"
             >
+              <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute -right-8 -top-8 h-36 w-36 rounded-full bg-cyan-500/20 blur-2xl transition-opacity duration-300 group-hover:opacity-80" />
               <div className="mb-3 inline-flex items-center justify-center rounded-md bg-cyan-500/20 p-2 text-cyan-300 ring-1 ring-cyan-500/30">
                 {c.icon}
